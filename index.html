@@ -1,0 +1,967 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      Usa IA! · Aulas particulares de inteligência artificial em Ijuí
+    </title>
+    <meta
+      name="description"
+      content="Aulas particulares presenciais de inteligência artificial em Ijuí. Aprenda a usar IA no seu trabalho, na sua casa, no seu ritmo. Peça seu orçamento."
+    />
+    <meta name="theme-color" content="#12131f" />
+    <meta property="og:title" content="Usa IA! · Aulas de IA em Ijuí" />
+    <meta
+      property="og:description"
+      content="Aprenda a usar IA no seu trabalho, na sua casa, no seu ritmo."
+    />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ink: #12131f;
+        --ink-soft: #2a2c40;
+        --cream: #faf7f0;
+        --paper: #ffffff;
+        --text: #1d1d2b;
+        --muted: #55566a;
+        --orange: #ff8a1f;
+        --yellow: #ffd23f;
+        --pink: #ff2d8a;
+        --cyan: #2fd6d6;
+        --purple: #7b61ff;
+        --line: #12131f;
+        --radius: 14px;
+        --shadow: 6px 6px 0 var(--line);
+        --display: "Anton", "Impact", sans-serif;
+        --body:
+          "DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        font-family: var(--body);
+        font-size: 1.0625rem;
+        line-height: 1.6;
+        color: var(--text);
+        background: var(--cream);
+        -webkit-font-smoothing: antialiased;
+      }
+      img,
+      svg {
+        display: block;
+        max-width: 100%;
+      }
+      a {
+        color: inherit;
+      }
+      :focus-visible {
+        outline: 3px solid var(--cyan);
+        outline-offset: 3px;
+      }
+
+      .wrap {
+        width: min(1080px, 100% - 32px);
+        margin-inline: auto;
+      }
+      .section {
+        padding: clamp(56px, 9vw, 104px) 0;
+        position: relative;
+      }
+      .eyebrow {
+        display: inline-block;
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--orange);
+        margin: 0 0 12px;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: var(--display);
+        font-weight: 400;
+        line-height: 0.98;
+        margin: 0;
+        letter-spacing: 0.01em;
+      }
+      h2 {
+        font-size: clamp(2.4rem, 6vw, 4rem);
+        text-transform: uppercase;
+        color: var(--ink);
+        margin-bottom: 18px;
+      }
+      .lead {
+        font-size: clamp(1.1rem, 2.2vw, 1.25rem);
+        color: var(--muted);
+        max-width: 60ch;
+        margin: 0 0 40px;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-family: var(--display);
+        font-size: 1.25rem;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 16px 26px;
+        border: 3px solid var(--line);
+        border-radius: 8px;
+        background: var(--orange);
+        color: var(--ink);
+        box-shadow: 5px 5px 0 var(--line);
+        transition:
+          transform 0.12s ease,
+          box-shadow 0.12s ease;
+        min-height: 56px;
+      }
+      .btn:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 7px 7px 0 var(--line);
+      }
+      .btn:active {
+        transform: translate(3px, 3px);
+        box-shadow: 2px 2px 0 var(--line);
+      }
+      .btn--yellow {
+        background: var(--yellow);
+      }
+      .btn--paper {
+        background: var(--paper);
+      }
+      .btn--pink {
+        background: var(--pink);
+        color: #fff;
+      }
+      .btn svg {
+        width: 22px;
+        height: 22px;
+        flex: none;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        background: rgba(18, 19, 31, 0.94);
+        backdrop-filter: blur(6px);
+        border-bottom: 1px solid #2a2c40;
+      }
+      .topbar .wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        height: 64px;
+      }
+      .brand {
+        font-family: var(--display);
+        font-size: 1.5rem;
+        color: var(--yellow);
+        text-decoration: none;
+        letter-spacing: 0.02em;
+      }
+      .brand span {
+        color: var(--pink);
+      }
+      .topbar .btn {
+        font-size: 1rem;
+        padding: 8px 14px;
+        min-height: 0;
+        box-shadow: 3px 3px 0 var(--line);
+        border-width: 2px;
+      }
+
+      .hero {
+        background-color: var(--ink);
+        background-image:
+          radial-gradient(rgba(255, 45, 138, 0.28) 1.2px, transparent 1.4px),
+          radial-gradient(
+            900px 500px at 85% 10%,
+            rgba(47, 214, 214, 0.18),
+            transparent 60%
+          );
+        background-size:
+          14px 14px,
+          auto;
+        color: #f4f1ea;
+        padding: clamp(72px, 14vw, 140px) 0 clamp(96px, 12vw, 130px);
+        overflow: hidden;
+      }
+      .hero h1 {
+        font-size: clamp(5rem, 18vw, 10.5rem);
+        color: var(--yellow);
+        text-shadow: 5px 5px 0 var(--pink);
+        text-transform: uppercase;
+      }
+      .hero .tagline {
+        font-family: var(--display);
+        font-size: clamp(1.5rem, 4.6vw, 2.6rem);
+        color: var(--cyan);
+        text-transform: uppercase;
+        margin: 18px 0 0;
+        letter-spacing: 0.02em;
+      }
+      .hero .promise {
+        font-size: clamp(1.15rem, 2.4vw, 1.4rem);
+        max-width: 34ch;
+        margin: 28px 0 0;
+        color: #e7e4dc;
+      }
+      .hero .promise strong {
+        color: #fff;
+      }
+      .hero .sub {
+        margin: 12px 0 36px;
+        color: #a9abc0;
+        max-width: 56ch;
+      }
+      .hero .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        align-items: center;
+      }
+      .hero .link-alt {
+        color: #e7e4dc;
+        font-weight: 500;
+      }
+      .hero .link-alt:hover {
+        color: var(--cyan);
+      }
+
+      .ticker {
+        background: var(--yellow);
+        color: var(--ink);
+        border-block: 3px solid var(--line);
+        transform: rotate(-1.5deg);
+        margin: -34px -20px 0;
+        position: relative;
+        z-index: 2;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+      .ticker-track {
+        display: inline-flex;
+        gap: 28px;
+        padding: 12px 0;
+        font-family: var(--display);
+        font-size: clamp(1.1rem, 2.6vw, 1.5rem);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        animation: ticker 28s linear infinite;
+      }
+      .ticker-track span::after {
+        content: "★";
+        margin-left: 28px;
+        color: var(--pink);
+      }
+      @keyframes ticker {
+        to {
+          transform: translateX(-50%);
+        }
+      }
+
+      .steps {
+        display: grid;
+        gap: 24px;
+        grid-template-columns: 1fr;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .step {
+        background: var(--paper);
+        border: 3px solid var(--line);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 26px 24px 28px;
+      }
+      .step:nth-child(1) {
+        box-shadow: 6px 6px 0 var(--orange);
+      }
+      .step:nth-child(2) {
+        box-shadow: 6px 6px 0 var(--yellow);
+      }
+      .step:nth-child(3) {
+        box-shadow: 6px 6px 0 var(--cyan);
+      }
+      .step:nth-child(4) {
+        box-shadow: 6px 6px 0 var(--purple);
+      }
+      .step .num {
+        font-family: var(--display);
+        font-size: 3rem;
+        line-height: 1;
+        color: var(--orange);
+      }
+      .step h3 {
+        font-family: var(--body);
+        font-weight: 700;
+        font-size: 1.2rem;
+        margin: 10px 0 8px;
+        color: var(--ink);
+        line-height: 1.25;
+      }
+      .step p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .practice {
+        background: var(--ink);
+        color: #f4f1ea;
+      }
+      .practice h2 {
+        color: var(--yellow);
+      }
+      .practice .eyebrow {
+        color: var(--cyan);
+      }
+      .practice .lead {
+        color: #b9bbcf;
+      }
+      .chat {
+        display: grid;
+        gap: 22px;
+        grid-template-columns: 1fr;
+      }
+      .compare {
+        background: #1c1e31;
+        border: 2px solid #3a3d5c;
+        border-radius: var(--radius);
+        padding: 24px;
+      }
+      .compare .tag {
+        display: inline-block;
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 4px 10px;
+        border-radius: 6px;
+        margin-bottom: 14px;
+      }
+      .compare--before .tag {
+        background: #3a3d5c;
+        color: #d6d8e8;
+      }
+      .compare--after {
+        border-color: var(--cyan);
+      }
+      .compare--after .tag {
+        background: var(--cyan);
+        color: var(--ink);
+      }
+      .bubble {
+        margin: 0;
+        font-size: 1.02rem;
+      }
+      .bubble--you {
+        background: #2a2c40;
+        border-radius: 12px 12px 12px 2px;
+        padding: 14px 16px;
+        color: #fff;
+      }
+      .bubble--ai {
+        margin-top: 14px;
+        color: #d6d8e8;
+      }
+      .verdict {
+        margin-top: 26px;
+        font-family: var(--display);
+        font-size: clamp(1.4rem, 3.4vw, 2rem);
+        text-transform: uppercase;
+        color: var(--pink);
+      }
+
+      .learn {
+        background: var(--paper);
+        border-block: 3px solid var(--line);
+      }
+      .cards {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: 1fr;
+      }
+      .card {
+        border: 3px solid var(--line);
+        border-radius: var(--radius);
+        overflow: hidden;
+        background: var(--cream);
+        box-shadow: var(--shadow);
+      }
+      .card header {
+        font-family: var(--display);
+        text-transform: uppercase;
+        font-size: 1.35rem;
+        letter-spacing: 0.02em;
+        padding: 14px 20px;
+        border-bottom: 3px solid var(--line);
+        color: var(--ink);
+      }
+      .card:nth-child(1) header {
+        background: var(--orange);
+      }
+      .card:nth-child(2) header {
+        background: var(--yellow);
+      }
+      .card:nth-child(3) header {
+        background: var(--cyan);
+      }
+      .card:nth-child(4) header {
+        background: var(--pink);
+        color: #fff;
+      }
+      .card p {
+        margin: 0;
+        padding: 18px 20px 22px;
+        color: var(--text);
+      }
+
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        list-style: none;
+        padding: 0;
+        margin: 0 0 28px;
+      }
+      .chips li {
+        background: var(--paper);
+        border: 2px solid var(--line);
+        border-radius: 999px;
+        padding: 10px 18px;
+        font-weight: 500;
+      }
+      .chips li:nth-child(3n + 1) {
+        background: #ffe3a3;
+      }
+      .chips li:nth-child(3n + 2) {
+        background: #c9f6f6;
+      }
+      .chips li:nth-child(3n) {
+        background: #ffd1e6;
+      }
+      .note {
+        border-left: 6px solid var(--pink);
+        background: var(--paper);
+        padding: 18px 22px;
+        border-radius: 0 var(--radius) var(--radius) 0;
+        max-width: 62ch;
+        margin: 0;
+        font-size: 1.05rem;
+      }
+
+      .about {
+        background: var(--cream);
+      }
+      .about-grid {
+        display: grid;
+        gap: 32px;
+        grid-template-columns: 1fr;
+        align-items: center;
+      }
+      .portrait {
+        aspect-ratio: 1 / 1;
+        width: min(340px, 100%);
+        margin-inline: auto;
+        border: 3px solid var(--line);
+        border-radius: 50%;
+        background:
+          radial-gradient(circle at 30% 30%, #fff 0 14%, transparent 15%),
+          linear-gradient(135deg, var(--yellow), var(--orange) 55%, var(--pink));
+        box-shadow: var(--shadow);
+        display: grid;
+        place-items: center;
+        font-family: var(--display);
+        font-size: clamp(4rem, 12vw, 6rem);
+        color: var(--ink);
+        letter-spacing: 0.04em;
+      }
+      .about h3 {
+        font-family: var(--display);
+        font-size: clamp(1.8rem, 4vw, 2.4rem);
+        text-transform: uppercase;
+        color: var(--ink);
+        margin-bottom: 6px;
+      }
+      .about .role {
+        font-weight: 700;
+        color: var(--purple);
+        margin: 0 0 18px;
+      }
+      .about p {
+        color: var(--text);
+        margin: 0 0 14px;
+        max-width: 58ch;
+      }
+
+      .faq {
+        display: grid;
+        gap: 14px;
+        max-width: 780px;
+      }
+      details {
+        background: var(--paper);
+        border: 2px solid var(--line);
+        border-radius: var(--radius);
+        padding: 0;
+        overflow: hidden;
+      }
+      summary {
+        cursor: pointer;
+        list-style: none;
+        padding: 18px 56px 18px 20px;
+        font-weight: 700;
+        position: relative;
+        font-size: 1.05rem;
+      }
+      summary::-webkit-details-marker {
+        display: none;
+      }
+      summary::after {
+        content: "+";
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-family: var(--display);
+        font-size: 1.8rem;
+        color: var(--orange);
+        transition: transform 0.2s ease;
+      }
+      details[open] summary::after {
+        content: "–";
+      }
+      details p {
+        margin: 0;
+        padding: 0 20px 20px;
+        color: var(--muted);
+      }
+
+      .closing {
+        background: var(--yellow);
+        border-top: 3px solid var(--line);
+        text-align: center;
+        padding: clamp(72px, 10vw, 110px) 0;
+        position: relative;
+        overflow: hidden;
+      }
+      .closing h2 {
+        color: var(--ink);
+        text-shadow: 4px 4px 0 var(--paper);
+      }
+      .closing p {
+        font-size: 1.15rem;
+        max-width: 46ch;
+        margin: 0 auto 36px;
+        color: var(--ink);
+      }
+      .closing .actions {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 18px;
+      }
+      .closing .small {
+        margin: 28px 0 0;
+        font-size: 0.95rem;
+        color: var(--ink-soft);
+      }
+      .closing .btn {
+        box-shadow: 5px 5px 0 var(--ink);
+      }
+
+      footer {
+        background: var(--ink);
+        color: #a9abc0;
+        padding: 36px 0;
+        font-size: 0.95rem;
+      }
+      footer .wrap {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 12px 24px;
+      }
+      footer a {
+        color: var(--yellow);
+      }
+
+      @media (min-width: 720px) {
+        .steps {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .cards {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .chat {
+          grid-template-columns: 1fr 1fr;
+        }
+        .about-grid {
+          grid-template-columns: 0.8fr 1.2fr;
+        }
+        .ticker {
+          margin-inline: -40px;
+        }
+      }
+      @media (min-width: 1000px) {
+        .steps {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        .ticker-track {
+          animation: none;
+        }
+        .btn {
+          transition: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="wrap">
+        <a class="brand" href="#inicio">Usa <span>IA!</span></a>
+        <a
+          class="btn btn--yellow"
+          href="https://wa.me/5555999739473?text=Oi!%20Quero%20um%20or%C3%A7amento%20das%20aulas%20de%20IA."
+          target="_blank"
+          rel="noopener"
+          >Orçamento</a
+        >
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="inicio">
+        <div class="wrap">
+          <h1>Usa IA!</h1>
+          <p class="tagline">Aulas particulares em Ijuí</p>
+          <p class="promise">
+            <strong
+              >Aprenda a usar IA no seu trabalho, na sua casa, no seu
+              ritmo.</strong
+            >
+          </p>
+          <p class="sub">
+            Aulas presenciais, feitas na sua casa ou no seu local de trabalho,
+            com as suas próprias tarefas. Sem jargão, sem pré-requisito.
+          </p>
+          <div class="actions">
+            <a
+              class="btn"
+              href="https://wa.me/5555999739473?text=Oi!%20Quero%20um%20or%C3%A7amento%20das%20aulas%20de%20IA."
+              target="_blank"
+              rel="noopener"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.6-1.3.1-.2 0-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.5 4c1.7.7 2.3.7 3.1.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c0-.1-.2-.2-.4-.3z"
+                />
+              </svg>
+              Peça seu orçamento
+            </a>
+            <a class="link-alt" href="mailto:joaopk.ifc@gmail.com"
+              >ou envie um e-mail</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <div class="ticker" aria-hidden="true">
+        <div class="ticker-track">
+          <span>Aulas em Ijuí</span><span>Dezembro a fevereiro</span
+          ><span>Turma piloto com vagas limitadas</span
+          ><span>Sem pré-requisito</span><span>Aulas na sua casa</span
+          ><span>Aulas em Ijuí</span><span>Dezembro a fevereiro</span
+          ><span>Turma piloto com vagas limitadas</span
+          ><span>Sem pré-requisito</span><span>Aulas na sua casa</span>
+        </div>
+      </div>
+
+      <section class="section" id="como-funciona">
+        <div class="wrap">
+          <p class="eyebrow">Como funciona</p>
+          <h2>Em quatro passos</h2>
+          <ol class="steps">
+            <li class="step">
+              <div class="num">01</div>
+              <h3>Fale comigo</h3>
+              <p>
+                Chame no WhatsApp ou envie um e-mail contando o que você faz no
+                dia a dia.
+              </p>
+            </li>
+            <li class="step">
+              <div class="num">02</div>
+              <h3>Agendamos</h3>
+              <p>
+                Combinamos data e horário e você responde um formulário curto
+                sobre sua rotina.
+              </p>
+            </li>
+            <li class="step">
+              <div class="num">03</div>
+              <h3>Aula na sua casa</h3>
+              <p>
+                Trabalhamos com tarefas reais: e-mails, textos, planilhas e
+                materiais de aula.
+              </p>
+            </li>
+            <li class="step">
+              <div class="num">04</div>
+              <h3>Você segue sozinho</h3>
+              <p>
+                Você sai com modelos prontos e um roteiro para continuar usando
+                no seu ritmo.
+              </p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section practice" id="pratica">
+        <div class="wrap">
+          <p class="eyebrow">Na prática</p>
+          <h2>Pedir do jeito certo faz diferença</h2>
+          <p class="lead">
+            Um exemplo simples, com a mesma tarefa pedida de duas formas.
+          </p>
+          <div class="chat">
+            <article class="compare compare--before">
+              <span class="tag">Antes</span>
+              <p class="bubble bubble--you">
+                "Escreve um aviso sobre a prova."
+              </p>
+              <p class="bubble bubble--ai">
+                A IA responde com um texto genérico, que você precisa reescrever
+                quase por inteiro.
+              </p>
+            </article>
+            <article class="compare compare--after">
+              <span class="tag">Depois</span>
+              <p class="bubble bubble--you">
+                "Escreva um aviso para os pais de alunos do 8º ano sobre a prova
+                de matemática de sexta-feira. Tom acolhedor, até 120 palavras,
+                sem termos técnicos."
+              </p>
+              <p class="bubble bubble--ai">
+                A IA entrega um texto pronto para enviar, com o tom e o tamanho
+                que você precisa.
+              </p>
+            </article>
+          </div>
+          <p class="verdict">Essa é a diferença que você aprende a fazer.</p>
+        </div>
+      </section>
+
+      <section class="section learn" id="aprender">
+        <div class="wrap">
+          <p class="eyebrow">O que você vai aprender</p>
+          <h2>Usar IA com confiança</h2>
+          <p class="lead">
+            Do básico à rotina de trabalho, sempre com tarefas que fazem parte
+            da sua vida.
+          </p>
+          <div class="cards">
+            <article class="card">
+              <header>Conversar com a IA</header>
+              <p>
+                Como pedir do jeito certo, dar contexto e melhorar a resposta
+                quando ela não ficou boa.
+              </p>
+            </article>
+            <article class="card">
+              <header>IA no seu trabalho</header>
+              <p>
+                E-mails, resumos, textos, planilhas, atendimento a clientes e
+                preparação de aulas.
+              </p>
+            </article>
+            <article class="card">
+              <header>Automatizar o repetitivo</header>
+              <p>
+                Modelos salvos e rotinas que economizam tempo nas tarefas que
+                você faz toda semana.
+              </p>
+            </article>
+            <article class="card">
+              <header>Usar com segurança</header>
+              <p>
+                O que nunca colar numa IA, como conferir respostas e como
+                reconhecer golpes com voz e imagens falsas.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="para-quem">
+        <div class="wrap">
+          <p class="eyebrow">Para quem é</p>
+          <h2>Para quem quer ganhar tempo</h2>
+          <ul class="chips">
+            <li>Professores</li>
+            <li>Profissionais liberais</li>
+            <li>Pequenos negócios</li>
+            <li>Autônomos</li>
+            <li>Quem nunca usou IA</li>
+            <li>Quem já usa e quer ir além</li>
+          </ul>
+          <p class="note">
+            Não precisa saber programar nem entender de tecnologia. Você só
+            precisa de um celular ou computador e vontade de experimentar.
+          </p>
+        </div>
+      </section>
+
+      <section class="section about" id="sobre">
+        <div class="wrap about-grid">
+          <div
+            class="portrait"
+            role="img"
+            aria-label="Foto de João Paulo Kowalski (em breve)"
+          >
+            JPK
+          </div>
+          <div>
+            <p class="eyebrow">Quem ensina</p>
+            <h3>João Paulo Kowalski</h3>
+            <p class="role">
+              Estudante de Ciência da Computação · IFC, 7ª fase
+            </p>
+            <p>
+              Gosto de explicar tecnologia de um jeito simples e prático, sem
+              termos difíceis. Acredito que a IA deve ajudar quem está do outro
+              lado da tela a trabalhar menos com o que é repetitivo.
+            </p>
+            <p>
+              Estou abrindo uma turma piloto em Ijuí. Quero ouvir de perto o que
+              funciona e o que pode melhorar, por isso as vagas são limitadas.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="duvidas">
+        <div class="wrap">
+          <p class="eyebrow">Dúvidas</p>
+          <h2>Perguntas frequentes</h2>
+          <div class="faq">
+            <details>
+              <summary>Preciso saber algo de tecnologia?</summary>
+              <p>
+                Não. A aula começa do zero, no seu ritmo, usando as coisas que
+                você já faz no trabalho.
+              </p>
+            </details>
+            <details>
+              <summary>Preciso levar algum equipamento?</summary>
+              <p>
+                Pode usar o seu celular ou computador. Se preferir, a gente
+                combina antes da aula.
+              </p>
+            </details>
+            <details>
+              <summary>Onde acontecem as aulas?</summary>
+              <p>
+                Presencialmente, na sua casa ou no seu local de trabalho, em
+                Ijuí.
+              </p>
+            </details>
+            <details>
+              <summary>Quanto custa?</summary>
+              <p>
+                Depende da quantidade de encontros e do formato. Chame no
+                WhatsApp ou envie um e-mail que eu respondo com o orçamento.
+              </p>
+            </details>
+            <details>
+              <summary>A IA é confiável?</summary>
+              <p>
+                Ela erra, às vezes com muita segurança. Por isso ensino a
+                conferir cada resposta antes de usar, principalmente em trabalho
+                e decisões importantes.
+              </p>
+            </details>
+            <details>
+              <summary>Quando começam as aulas?</summary>
+              <p>
+                As aulas acontecem de dezembro a fevereiro. A turma piloto tem
+                vagas limitadas.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <section class="closing" id="contato">
+      <div class="wrap">
+        <h2>Bora usar IA?</h2>
+        <p>
+          Me chame, conte um pouco da sua rotina e eu passo o orçamento e as
+          datas disponíveis.
+        </p>
+        <div class="actions">
+          <a
+            class="btn btn--paper"
+            href="https://wa.me/5555999739473?text=Oi!%20Quero%20um%20or%C3%A7amento%20das%20aulas%20de%20IA."
+            target="_blank"
+            rel="noopener"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                fill="currentColor"
+                d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.6-1.3.1-.2 0-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.5 4c1.7.7 2.3.7 3.1.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c0-.1-.2-.2-.4-.3z"
+              />
+            </svg>
+            WhatsApp: (55) 99973-9473
+          </a>
+          <a class="btn btn--paper" href="mailto:joaopk.ifc@gmail.com">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                fill="currentColor"
+                d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm1 2.2V17h16V7.2l-8 5.3z"
+              />
+            </svg>
+            joaopk.ifc@gmail.com
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap">
+        <span>© 2026 Usa IA! · João Paulo Kowalski · Ijuí/RS</span>
+        <a href="#inicio">Voltar ao topo</a>
+      </div>
+    </footer>
+  </body>
+</html>
